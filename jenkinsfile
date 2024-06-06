@@ -1,15 +1,19 @@
-pipeline
-{
+pipeline {
     agent any
-    stages
-    {
-        stage('checkout')
-        {
-git 'https://github.com/kartikeya-1112/mytesting/karti.java'
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout code from repository
+                git 'https://github.com/kartikeya-1112/mytesting'
+            }
         }
-        stage('build')
-        {
-            sh 'mvn compile'
+
+        stage('Build') {
+            steps {
+                // Compile Java code using Maven
+                sh 'mvn compile'
+            }
         }
     }
 }
