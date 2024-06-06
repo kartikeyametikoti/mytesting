@@ -5,7 +5,7 @@ pipeline
     {
         stage('checkout')
         {
-git 'https://github.com/kartikeya-1112/mytesting/blob/main/karti.java'
+git 'https://github.com/kartikeya-1112/mytesting/karti.java'
         }
         stage('build')
         {
