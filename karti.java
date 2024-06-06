@@ -1,15 +1,6 @@
-pipeline
-{
-    agent any
-    stages
-    {
-        stage('checkout')
-        {
-git 'https://github.com/kartikeya-1112/mytesting'
-        }
-        stage('build')
-        {
-            sh 'mvn compile'
-        }
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
     }
 }
