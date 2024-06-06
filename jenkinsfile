@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         // Define Maven tool with the specified name
-        maven 'Maven3' // This should match the name you specified in the Maven installation configuration
+        maven 'maven' // This should match the name you specified in the Maven installation configuration
     }
 
     stages {
