@@ -1,19 +1,27 @@
-pipeline {
-    agent any
+node {
+    stage('Checkout') {
+        // Checkout code from repository
+        git url: 'https://github.com/kartikeya-1112/mytesting', branch: 'main'
+    }
 
-    stages {
-        stage('Checkout') {
-            steps {
-                // Checkout code from repository
-                git 'https://github.com/kartikeya-1112/mytesting'
-            }
-        }
+    stage('Build') {
+        // Compile Java code using Maven
+        sh 'mvn compile'
+    }
 
-        stage('Build') {
-            steps {
-                // Compile Java code using Maven
-                sh 'mvn compile'
-            }
-        }
+    stage('Test') {
+        // Run tests using Maven
+        sh 'mvn test'
+    }
+
+    stage('Package') {
+        // Package the application using Maven
+        sh 'mvn package'
+    }
+
+    stage('Deploy') {
+        // Deploy the application (example step)
+        echo 'Deploying the application...'
+        // Add your deployment commands here
     }
 }
