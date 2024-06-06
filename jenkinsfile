@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maveni3.9.7' // Use the name specified in Maven installation configuration
+        maven 'Maveni 3.9.7' // Use the name specified in Maven installation configuration
     }
 
     stages {
