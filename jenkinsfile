@@ -2,25 +2,22 @@ pipeline {
     agent any
 
     tools {
-        // Define Maven tool with the specified name
-        maven 'maven' // This should match the name you specified in the Maven installation configuration
+        gradle 'Gradle' // Use 'gradle' as the identifier for Gradle installation
     }
 
     stages {
         stage('Checkout') {
             steps {
-                // Checkout code from repository
-                git url: 'https://github.com/kartikeya-1112/mytesting', branch: 'main'
+                git url: 'https://github.com/example/my-java-project.git', branch: 'main'
             }
         }
 
         stage('Build') {
             steps {
-                // Compile Java code using Maven
-                sh 'mvn compile'
+                sh 'gradle build' // Execute Gradle build command
             }
         }
 
-        // Add other stages as needed
+        // Add more stages as needed
     }
 }
