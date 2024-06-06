@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        gradle 'Gradle' // Use 'gradle' as the identifier for Gradle installation
+        gradle 'Gradle8.8' // Use 'gradle' as the identifier for Gradle installation
     }
 
     stages {
