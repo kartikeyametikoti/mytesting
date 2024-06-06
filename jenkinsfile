@@ -1,27 +1,26 @@
-node {
-    stage('Checkout') {
-        // Checkout code from repository
-        git url: 'https://github.com/kartikeya-1112/mytesting', branch: 'main'
+pipeline {
+    agent any
+
+    tools {
+        // Define Maven tool with the specified name
+        maven 'Maven3' // This should match the name you specified in the Maven installation configuration
     }
 
-    stage('Build') {
-        // Compile Java code using Maven
-        sh 'mvn compile'
-    }
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout code from repository
+                git url: 'https://github.com/kartikeya-1112/mytesting', branch: 'main'
+            }
+        }
 
-    stage('Test') {
-        // Run tests using Maven
-        sh 'mvn test'
-    }
+        stage('Build') {
+            steps {
+                // Compile Java code using Maven
+                sh 'mvn compile'
+            }
+        }
 
-    stage('Package') {
-        // Package the application using Maven
-        sh 'mvn package'
-    }
-
-    stage('Deploy') {
-        // Deploy the application (example step)
-        echo 'Deploying the application...'
-        // Add your deployment commands here
+        // Add other stages as needed
     }
 }
