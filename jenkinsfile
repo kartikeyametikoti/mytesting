@@ -2,23 +2,23 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout the code from the repository
-                git 'https://github.com/kartikeya-1112/mytesting'
-            }
-        }
-        
         stage('Build') {
             steps {
-                // Compile the Java program
+                script {
+                    writeFile file: 'HelloWorld.java', text: '''
+                    public class HelloWorld {
+                        public static void main(String[] args) {
+                            System.out.println("Hello, Jenkins!");
+                        }
+                    }
+                    '''
+                }
                 sh 'javac HelloWorld.java'
             }
         }
 
         stage('Run') {
             steps {
-                // Run the Java program
                 sh 'java HelloWorld'
             }
         }
