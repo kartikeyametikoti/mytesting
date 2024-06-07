@@ -1,17 +1,35 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maveni 3.9.7' // Use the name specified in Maven installation configuration
-    }
-
     stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from the repository
+                git 'https://your-git-repository-url.git'
+            }
+        }
+        
         stage('Build') {
             steps {
-                sh 'mvn clean install' // Use Maven command in your pipeline steps
+                // Compile the Java program
+                sh 'javac HelloWorld.java'
             }
         }
 
-        // Add more stages as needed
+        stage('Run') {
+            steps {
+                // Run the Java program
+                sh 'java HelloWorld'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build and Run completed successfully!'
+        }
+        failure {
+            echo 'Build or Run failed.'
+        }
     }
 }
