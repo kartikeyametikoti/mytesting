@@ -27,6 +27,7 @@ pipeline {
     post {
         success {
             echo 'Build and Run completed successfully!'
+            archiveArtifacts artifacts: 'HelloWorld.class', onlyIfSuccessful: true
         }
         failure {
             echo 'Build or Run failed.'
